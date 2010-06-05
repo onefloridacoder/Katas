@@ -62,5 +62,14 @@
             
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void must_sum_ages()
+        {
+            var actual = this.FuzzyList.Aggregate(0, (seed, b) => seed + b.Age);
+            var expected = 30;
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
