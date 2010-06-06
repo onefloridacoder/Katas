@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateKata.cs" />
+    <Compile Include="BinItem.cs" />
     <Compile Include="FuzzyMember.cs" />
     <Compile Include="MemberEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -71,5 +71,31 @@
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void must_sum_all_inventory_counts_with_null_values()
+        {
+            var binItems = new List<BinItem>()
+             {
+                 new BinItem() {Quantity = null},
+                 new BinItem() {Quantity = 512.5},
+                 new BinItem() {Quantity = 12.23},
+                 new BinItem() {Quantity = 172},
+                 new BinItem() {Quantity = 647.5},
+                 new BinItem() {Quantity = 8.25},
+                 new BinItem() {Quantity = null},
+                 new BinItem() {Quantity = 947.25},
+             };
+
+            var roundedGrandTotal = 
+                binItems.Aggregate(
+                    new double(),
+                    (total, item) => total += item.Quantity.HasValue? item.Quantity.Value : 0,
+                    (total) => Math.Round(total, 2));
+
+            var actual = string.Format("{0:c}", roundedGrandTotal);
+            var expected = string.Format("{0:c}", roundedGrandTotal);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
